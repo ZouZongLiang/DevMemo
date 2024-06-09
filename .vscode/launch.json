@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "node-terminal",
+            "name": "调试: electron",
+            "request": "launch",
+            "command": "npm run elec",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

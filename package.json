@@ -1,0 +1,28 @@
+{
+  "name": "devmemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./electron/electron.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "elec": "electron .",
+    "vite": "vite",
+    "dev": "vite & electron .",
+    "build": "vite build && electron-builder"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.10.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.2.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
