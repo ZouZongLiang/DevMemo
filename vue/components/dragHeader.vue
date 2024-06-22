@@ -1,19 +1,19 @@
 <template>
-    <header class="drag-header flex w-full h-12 pl-2 bg-red-400">
+    <header class="drag-header flex w-full h-9 pl-2 bg-[var(--bg-color)]">
         <div class="left mr-auto h-full">
-            <img src="/vue/assets/logo.png" class="w-8 h-8 mr-auto">
-            <div class="pl-3 font-mono font-extrabold text-xl">DevMemo</div>
+            <img src="/vue/assets/logo.png" class="w-6 h-6 mr-auto">
+            <div class="pl-2 font-mono font-extrabold text-xl">DevMemo</div>
         </div>
         <div class="winctrl ">
-            <div @click="windowState.min()">
-                <Minus size="28"></Minus>
+            <div  class="hover:bg-[#6b6b6b69]" @click="windowState.min()">
+                <Minus :size="iconSize"></Minus>
             </div>
-            <div>
-                <Square v-show="!isMaximized" size="28" @click="windowState.max()"></Square>
-                <copy v-show="isMaximized" size="28" @click="windowState.restore()"></copy>
+            <div class="hover:bg-[#6b6b6b69]" @click="windowState.max()">
+                <Square v-show="!isMaximized" :size="iconSize"></Square>
+                <copy v-show="isMaximized" :size="iconSize"></copy>
             </div>
-            <div>
-                <Close size="28" @click="windowState.close()"></Close>
+            <div class="hover:bg-red-600" @click="windowState.close()">
+                <Close :size="iconSize"></Close>
             </div>
         </div>
     </header>
@@ -26,18 +26,19 @@ import {
 import { ref } from 'vue';
 
 let isMaximized = ref(false)
+let iconSize = ref(16)
 const windowState = {
     min() {
         window.api.windowStateChange('minimized')
     },
     max() {
-        window.api.windowStateChange('maximized')
-    },
-    close() {
-        window.api.windowStateChange('closed')
+        isMaximized.value == true ? windowState.restore() : window.api.windowStateChange('maximized')
     },
     restore() {
         window.api.windowStateChange('restored')
+    },
+    close() {
+        window.api.windowStateChange('closed')
     }
 }
 const isMaximizedChange = (state) => {
@@ -54,8 +55,11 @@ window.api.onWindowStateChange(isMaximizedChange)
     -webkit-app-region: drag;
 }
 
+.drag-header {
+    user-select: none;
+}
 .winctrl {
-    @apply ml-auto h-full bg-yellow-400;
+    @apply ml-auto h-full;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -64,7 +68,11 @@ window.api.onWindowStateChange(isMaximizedChange)
 
 .winctrl div {
     -webkit-app-region: none;
-    margin-right: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    @apply h-full w-10 
 }
 
 .left {

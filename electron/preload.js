@@ -1,7 +1,6 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
 
-console.log('preload.js loaded !')
 contextBridge.exposeInMainWorld('api', {
   windowStateChange: (state) => {
     switch (state) {

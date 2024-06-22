@@ -11,13 +11,14 @@ import mainview from "./views/mian.vue"
 <style>
 
 :root{
-    --bg-color: #f5f5f5;
+    --bg-color: #f9f9f9;
     --text-color: #333;
+    --bg-container: #fafafa;
 }
 
 .dark{
     --bg-color: #333;
-    --text-color: #f5f5f5;
+    --text-color: #f3f3f3;
 }
 </style>
 
