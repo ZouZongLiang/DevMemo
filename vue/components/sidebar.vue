@@ -2,21 +2,21 @@
   <div class="sidebar relative w-full h-full bg-[var(--bg-color)]">
     <div class="top flex flex-col">
       <div>
-        <input type="radio" name="item" id="rb1" class="hidden" checked="true">
+        <input @change="routerChange('/')" type="radio" name="item" id="rb1" class="hidden" checked="true">
         <label for="rb1" class="flex flex-col items-center justify-center">
           <home-two :size="size" stroke-width="2" />
           <p>主页</p>
         </label>
       </div>
       <div>
-        <input type="radio" name="item" id="rb2" class="hidden">
+        <input @change="routerChange('/projectview')"  type="radio" name="item" id="rb2" class="hidden">
         <label for="rb2" class="flex flex-col items-center justify-center">
           <application-two :size="size" stroke-width="2" />
           <p>项目</p>
         </label>
       </div>
       <div>
-        <input type="radio" name="item" id="rb3" class="hidden">
+        <input @change="routerChange('/noteview')"  type="radio" name="item" id="rb3" class="hidden">
         <label for="rb3" class="flex flex-col items-center justify-center">
           <notebook :size="size" stroke-width="2" />
           <p>笔记</p>
@@ -35,7 +35,7 @@
 
       </div>
       <div>
-        <input type="radio" name="item" id="rb4" class="hidden">
+        <input  @change="routerChange('/settingview')"  type="radio" name="item" id="rb4" class="hidden">
         <label for="rb4" class="flex flex-col items-center justify-center">
           <Setting-One :size="size" stroke-width="2" />
           <p>设置</p>
@@ -43,7 +43,7 @@
       </div>
 
       <div>
-        <input type="radio" name="item" id="rb5" class="hidden">
+        <input  @change="routerChange('/userview')"  type="radio" name="item" id="rb5" class="hidden">
         <label for="rb5" class="flex flex-col items-center justify-center">
           <user :size="size" stroke-width="2" />
           <p>个人</p>
